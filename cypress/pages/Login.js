@@ -20,5 +20,13 @@ class Login {
      getErrorMessage() {
         return cy.get('[data-test="error"]')
      }
+
+     getMenuBar() {
+      return cy.get('#react-burger-menu-btn')
+   }
+   getLogout() {
+      return cy.get('#logout_sidebar_link')
+   }
+  
 }
 export default Login;

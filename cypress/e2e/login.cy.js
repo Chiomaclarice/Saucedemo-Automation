@@ -18,6 +18,13 @@ describe('Login Saucedemo', () => {
     login.getLoginButton().click()
 
     })
+    it.only('Verify user is logged out successfully', ()=> {
+     login.getUsernameField().type(loginData.validCredentials.username);
+     login.getPasswordField().should('be.visible').type(loginData.validCredentials.password)
+     login.getLoginButton().click()
+     login.getMenuBar().should('be.visible').click()
+     login.getLogout().should('be.visible').click()
+    })
    it('Verify unsuccessful login with invalid credentials', ()=>{
     login.getUsernameField().type(loginData.invalidCredentials.username)
     login.getPasswordField().type(loginData.invalidCredentials.password)
