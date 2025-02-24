@@ -1,5 +1,5 @@
 import Sorting from "../pages/Sorting";
-import { Login, Logout } from "../pages/Login";
+import Login from "../pages/Login";
 
 const sorting = new Sorting();
 const login = new Login();

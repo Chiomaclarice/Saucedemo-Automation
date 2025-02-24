@@ -1,4 +1,6 @@
-import { Login, Logout } from "../pages/Login";
+import Login from "../pages/Login";
+import Logout from "../pages/Logout";
+
 const login = new Login();
 const logout = new Logout();
 
