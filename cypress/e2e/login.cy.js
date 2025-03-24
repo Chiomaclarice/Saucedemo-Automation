@@ -11,6 +11,7 @@ describe("Login Saucedemo", () => {
     cy.fixture("loginData").then((data) => {
       loginData = data; //storing fixture data in a variable
       login.visit();
+      cy.wait(1000);
     });
   });
 
@@ -21,8 +22,9 @@ describe("Login Saucedemo", () => {
       .should("be.visible")
       .type(loginData.validCredentials.password);
     login.getLoginButton().click();
+    cy.title().should("eq", "Swag Labs");
   });
-  it.only("Verify user is logged out successfully", () => {
+  it("Verify user is logged out successfully", () => {
     login.getUsernameField().type(loginData.validCredentials.username);
     login
       .getPasswordField()
@@ -57,5 +59,15 @@ describe("Login Saucedemo", () => {
   it("Verify login fails when username and password fields are left empty", () => {
     login.getLoginButton().click();
     login.getErrorMessage().should("contain", "Username is required");
+  });
+
+  afterEach(() => {
+    cy.get("body").then(($body) => {
+      if ($body.find("#react-burger-menu-btn").length > 0) {
+        logout.getMenuBar().should("be.visible").click();
+        logout.getLogout().should("be.visible").click();
+        cy.url().should("eq", "https://www.saucedemo.com/");
+      }
+    });
   });
 });

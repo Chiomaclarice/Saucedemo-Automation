@@ -13,7 +13,7 @@ class Login {
     return cy.get("#password");
   }
   getLoginButton() {
-    return cy.get("#login-button");
+    return cy.get('[data-test = "login-button"]');
   }
   getErrorMessage() {
     return cy.get('[data-test="error"]');
