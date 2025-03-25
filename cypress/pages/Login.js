@@ -10,10 +10,10 @@ class Login {
     return cy.get("#user-name").should("exist");
   }
   getPasswordField() {
-    return cy.get("#password");
+    return cy.get("#password").click();
   }
   getLoginButton() {
-    return cy.get('[data-test = "login-button"]');
+    return cy.get('[data-test = "login-button"]').click();
   }
   getErrorMessage() {
     return cy.get('[data-test="error"]');
