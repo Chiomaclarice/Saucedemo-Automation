@@ -20,10 +20,20 @@ describe("Perform e2e purchase", () => {
   it("Add to cart, checkout and confirm order", () => {
     login.getUsernameField().type(userData.validCredentials.username);
     login.getPasswordField().type(userData.validCredentials.password);
-    login.getLoginButton().click;
+    login.getLoginButton().click();
 
     cart
-      .addToCart()
+      .addToCart1()
+      .should("be.visible")
+      .and("contain.text", "Add to cart")
+      .click();
+    cart
+      .addToCart2()
+      .should("be.visible")
+      .and("contain.text", "Add to cart")
+      .click();
+    cart
+      .addToCart3()
       .should("be.visible")
       .and("contain.text", "Add to cart")
       .click();
@@ -33,5 +43,17 @@ describe("Perform e2e purchase", () => {
     checkout.fillCheckoutDetails("Mary", "Doe", "12346");
     checkout.confirmOrder();
     cy.contains("Thank you for your order").should("be.visible");
+  });
+
+  it.only("User shouldn't checkout with empty cart", () => {
+    login.getUsernameField().type(userData.validCredentials.username);
+    login.getPasswordField().type(userData.validCredentials.password);
+    login.getLoginButton();
+
+    cart.getCartIcon();
+
+    checkout.getCheckoutButton();
+    checkout.fillCheckoutDetails("Peter", "Doe", "111111");
+    checkout.confirmOrder();
   });
 });

@@ -7,16 +7,24 @@ class Cart {
     cy.visit(this.url);
   }
 
-  addToCart() {
-    return cy.get('[data-test="add-to-cart-sauce-labs-backpack"]');
+  addToCart1() {
+    return cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
   }
 
-  removeFromCart() {
+  addToCart2() {
+    return cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
+  }
+
+  addToCart3() {
+    return cy.get('[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click();
+  }
+
+  removeFromCart1() {
     return cy.get('[data-test="remove-sauce-labs-bike-light"]').click();
   }
 
   getCartIcon() {
-    return cy.get('[data-test="shopping-cart-link"]').click();
+    return cy.get('[data-test="shopping-cart-link"]');
   }
 }
 
