@@ -21,6 +21,7 @@ describe("Perform e2e purchase", () => {
     login.getUsernameField().type(userData.validCredentials.username);
     login.getPasswordField().type(userData.validCredentials.password);
     login.getLoginButton().click();
+    cy.url().should("include", "/inventory.html");
 
     cart
       .addToCart1()
