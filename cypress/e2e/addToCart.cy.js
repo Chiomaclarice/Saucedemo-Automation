@@ -21,10 +21,10 @@ describe("Add to Cart Scenarios", () => {
     login.getLoginButton();
     cy.url().should("eq", "https://www.saucedemo.com/inventory.html");
 
-    cart.addToCart1();
-    cart.addToCart2();
-    cart.addToCart3();
-    cart.getCartIcon().should("contain", 3);
+    cart.addToCart1().click();
+    cart.addToCart2().click();
+    cart.addToCart3().click();
+    cart.getCartIcon().should("contain", 3).click();
   });
 
   it("remove items from cart", () => {
@@ -33,9 +33,9 @@ describe("Add to Cart Scenarios", () => {
     login.getLoginButton();
     cy.url().should("eq", "https://www.saucedemo.com/inventory.html");
 
-    cart.addToCart1();
-    cart.addToCart2();
-    cart.addToCart3();
+    cart.addToCart1().click();
+    cart.addToCart2().click();
+    cart.addToCart3().click();
     cart.getCartIcon().should("contain", 3);
 
     cart.removeFromCart1();

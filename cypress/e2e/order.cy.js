@@ -20,7 +20,7 @@ describe("Perform e2e purchase", () => {
   it("Add to cart, checkout and confirm order", () => {
     login.getUsernameField().type(userData.validCredentials.username);
     login.getPasswordField().type(userData.validCredentials.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     cy.url().should("include", "/inventory.html");
 
     cart
@@ -38,7 +38,7 @@ describe("Perform e2e purchase", () => {
       .should("be.visible")
       .and("contain.text", "Add to cart")
       .click();
-    cart.getCartIcon();
+    cart.getCartIcon().click();
 
     checkout.getCheckoutButton();
     checkout.fillCheckoutDetails("Mary", "Doe", "12346");
@@ -51,7 +51,7 @@ describe("Perform e2e purchase", () => {
     login.getPasswordField().type(userData.validCredentials.password);
     login.getLoginButton();
 
-    cart.getCartIcon();
+    cart.getCartIcon().click();
 
     checkout.getCheckoutButton();
     checkout.fillCheckoutDetails("Peter", "Doe", "111111");

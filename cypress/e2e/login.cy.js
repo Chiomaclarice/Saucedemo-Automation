@@ -30,7 +30,7 @@ describe("Login Saucedemo", () => {
       .getPasswordField()
       .should("be.visible")
       .type(loginData.validCredentials.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     logout.getMenuBar().should("be.visible").click();
     logout.getLogout().should("be.visible").click();
     cy.url().should("eq", "https://www.saucedemo.com/");
