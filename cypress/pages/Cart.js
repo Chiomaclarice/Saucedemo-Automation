@@ -24,7 +24,7 @@ class Cart {
   }
 
   getCartIcon() {
-    return cy.get('[data-test="shopping-cart-link"]');
+    return cy.get('[data-test="shopping-cart-link"]').click();
   }
 }
 

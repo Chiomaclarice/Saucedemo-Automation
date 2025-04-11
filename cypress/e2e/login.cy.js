@@ -21,7 +21,7 @@ describe("Login Saucedemo", () => {
       .getPasswordField()
       .should("be.visible")
       .type(loginData.validCredentials.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     cy.title().should("eq", "Swag Labs");
   });
   it("Verify user is logged out successfully", () => {
@@ -38,7 +38,7 @@ describe("Login Saucedemo", () => {
   it("Verify unsuccessful login with invalid credentials", () => {
     login.getUsernameField().type(loginData.invalidCredentials.username);
     login.getPasswordField().type(loginData.invalidCredentials.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     login
       .getErrorMessage()
       .should(
@@ -50,14 +50,14 @@ describe("Login Saucedemo", () => {
   it("Verify login fails for locked out user", () => {
     login.getUsernameField().type(loginData.lockedUser.username);
     login.getPasswordField().type(loginData.lockedUser.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     login
       .getErrorMessage()
       .should("contain.text", "Sorry, this user has been locked out.");
   });
 
   it("Verify login fails when username and password fields are left empty", () => {
-    login.getLoginButton().click();
+    login.getLoginButton();
     login.getErrorMessage().should("contain", "Username is required");
   });
 

@@ -20,7 +20,7 @@ describe("Validate product sorting/filtering", () => {
       .getPasswordField()
       .should("be.visible")
       .type(loginData.validCredentials.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     sorting.getSortContainer().select("Name (A to Z)");
     sorting.getAtoZItem().should("contain", "Sauce Labs Backpack");
   });
@@ -31,7 +31,7 @@ describe("Validate product sorting/filtering", () => {
       .getPasswordField()
       .should("be.visible")
       .type(loginData.validCredentials.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     sorting.getSortContainer().select("Name (Z to A)");
     sorting
       .getZtoAitem()
@@ -44,7 +44,7 @@ describe("Validate product sorting/filtering", () => {
       .getPasswordField()
       .should("be.visible")
       .type(loginData.validCredentials.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     sorting.getSortContainer().select("Price (low to high)");
     sorting.getPriceLowtoHigh().should("contain", "Sauce Labs Onesie");
   });
@@ -55,7 +55,7 @@ describe("Validate product sorting/filtering", () => {
       .getPasswordField()
       .should("be.visible")
       .type(loginData.validCredentials.password);
-    login.getLoginButton().click();
+    login.getLoginButton();
     sorting.getSortContainer().select("Price (high to low)");
     sorting.getPriceHightoLow().should("contain", "Sauce Labs Fleece Jacket");
   });

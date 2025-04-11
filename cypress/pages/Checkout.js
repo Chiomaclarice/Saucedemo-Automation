@@ -8,7 +8,7 @@ class Checkout {
   }
 
   getCheckoutButton() {
-    return cy.get('[data-test="checkout"]').click();
+    return cy.get("#checkout").click();
   }
 
   fillCheckoutDetails(firstName, lastName, postalCode) {

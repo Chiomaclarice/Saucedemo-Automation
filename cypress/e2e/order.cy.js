@@ -46,7 +46,7 @@ describe("Perform e2e purchase", () => {
     cy.contains("Thank you for your order").should("be.visible");
   });
 
-  it.only("User shouldn't checkout with empty cart", () => {
+  it("User shouldn't checkout with empty cart", () => {
     login.getUsernameField().type(userData.validCredentials.username);
     login.getPasswordField().type(userData.validCredentials.password);
     login.getLoginButton();
